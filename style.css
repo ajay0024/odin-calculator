@@ -1,0 +1,134 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: rgb(47, 46, 46);
+    font-family: 'VT323', monospace;
+    
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap : 4px;
+}
+#display-container{
+    grid-column: auto / span 4; 
+    position: relative;
+    background: rgb(232, 225, 225);
+    width: min(100vh, 500px);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#display-container > *{
+    font-size: 38px;
+    text-align: end;
+    background: rgb(232, 225, 225);
+    border: none;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    color: #2d2b2b;
+    
+}
+
+#display{
+    width: 90%;
+}
+#sign{
+    width: 20px;
+}
+
+
+
+.bn5{
+    font-family: 'VT323', monospace;
+    font-size: 40px;
+}
+.long{
+    grid-row: auto / span 2;
+}
+.wide{
+    grid-column: auto / span 2;
+}
+
+.bn5 {
+    padding: 0.6em 0.6em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.bn5:before {
+    content: "";
+    background: linear-gradient(45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowingbn5 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+@keyframes glowingbn5 {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.bn5:active {
+    color: #000;
+}
+
+.bn5:active:after {
+    background: transparent;
+}
+
+.bn5:hover:before {
+    opacity: 1;
+}
+
+.bn5:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #191919;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
